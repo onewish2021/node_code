@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 用户界面 </h1>
+    <form>
+        name:<br>
+        <input type="text" id="name">
+        <br>
+        password:<br>
+        <input type="password" id="password">
+        <br><br>
+        <input type="button" value="注册" id="register">
+        <input type="button" value="登录" id="login">
+    </form> 
+
+    <script src="./jquery-3.5.1.js" ></script>
+    <script src="../denglu/index.js" ></script>
+    <script> 
+        //console.log( $ )
+        // 1.注册
+        $( '#register' ).on( 'click',function(){ 
+            $.ajax( {
+                method: "POST",
+                url: 'http://localhost:8080/register',
+                data: { post_name: $( '#name' ).val(), post_password: $( '#password' ).val() },
+                dataType: 'json',
+                success( data ){
+                    console.log( 'data--->',data )
+                },
+                error( err ){
+                    console.log( 'err--->',err )
+                }
+            } )
+        }  )
+
+        // 2.登录
+        $( '#login' ).on( 'click',function(){ 
+            $.ajax( {
+                url: 'http://localhost:8080/login',
+                data: { name: $( '#name' ).val(), password: $( '#password' ).val() },
+                dataType: 'json',
+                success( data ){
+                    if( !data.code ){
+                        console.log( 'data--->',data )
+                    }else{
+                        console.log( 'data--->',data )
+                    }
+                },
+                error( err ){
+                    console.log( 'err--->',err )
+                }
+            } )
+        }  )
+    </script>
+</body>
+</html>
