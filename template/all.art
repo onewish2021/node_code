@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://localhost:8080/search.art"> return </a>
+    <!-- 方法一 -->
+    <!--
+        {{each arr}}
+            <h2>{{$value.name}}</h2>
+            <ul>
+                <li>{{$value.name}}</li>
+                <li>{{$value.age}}</li>
+                <li>{{$value.job}}</li>
+            </ul>
+        {{/each}}
+    -->
+
+    <!-- 方法二 -->
+    <!--
+    {{each arr}}
+        <h2>{{$value.name}}</h2>
+        <ul>
+            {{each $value val key}}
+                <li> {{key}}----{{val}} </li>
+            {{/each}}
+        </ul>
+    {{/each}}
+    -->
+
+    <!-- 方法三 -->
+    {{each arr}}
+        <h2>{{$value.name}}</h2>
+        <ul>
+            {{each $value val key}}
+                <li> {{key | map key}} ---- {{val}} </li>
+            {{/each}}
+        </ul>
+    {{/each}}
+
+
+</body>
+</html>

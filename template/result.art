@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>姓名：{{user.name}}</li>
+        <li>年龄：{{user.age}}</li>
+        <li>工作：{{user.job}}</li>
+    </ul>
+    <a href="http://localhost:8080/search.art"> return </a>
+</body>
+</html>
